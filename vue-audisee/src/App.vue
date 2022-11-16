@@ -1,12 +1,5 @@
 <template>
-  <div id="app">
-    <h1>오늘은 어떤 영화를 시청하셨나요</h1>
-    <h1>V</h1>
-    <nav>
-      <router-link :to="{ name: 'SearchView' }">search</router-link>
-    </nav>
-    <router-view></router-view>
-  </div>
+  <div id="app"></div>
 </template>
 
 <style>
