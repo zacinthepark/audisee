@@ -2,7 +2,7 @@
   <div>
     <h1>RecommendView</h1>
     <h1>비슷한 영화 추천</h1>
-    <RecommendItemView />
+    <RecommendItemVue />
   </div>
 </template>
 

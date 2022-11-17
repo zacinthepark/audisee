@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h3>음산한 깜찍한 커여운</h3>
-    <button type="button" class="btn btn-primary">Primary</button>
+    <router-link :to="{ name: 'MainView' }">goMain</router-link>
   </div>
 </template>
 

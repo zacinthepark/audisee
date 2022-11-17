@@ -8,6 +8,7 @@ import PlaylistView from "@/views/PlaylistView";
 import ProfileView from "@/views/ProfileView";
 import RecommendView from "@/views/RecommendView";
 import SignupView from "@/views/SignupView";
+import MainView from "@/views/MainView";
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     path: "/search",
     name: "SearchView",
     component: SearchView,
+  },
+  {
+    path: "/main",
+    name: "MainView",
+    component: MainView,
   },
   {
     path: "/home",

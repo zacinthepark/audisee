@@ -1,9 +1,13 @@
 <template>
-  <h1>SignupView</h1>
+  <div>
+    <h1>SignupView</h1>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "SignupView",
+};
 </script>
 
 <style></style>
