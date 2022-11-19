@@ -16,9 +16,12 @@
       </b-container>
     </div>
 
-    <MainAVue />
-    <MainBVue />
-    <MainCVue />
+    <div>
+      <b-tabs class="fs-6 m-5" pills card>
+        <b-tab class="fs-6" title="추천음악" active><MainAVue /></b-tab>
+        <b-tab class="fs-6" title="상세정보" lazy> <MainCVue /></b-tab>
+      </b-tabs>
+    </div>
   </div>
 </template>
 
@@ -26,14 +29,12 @@
 
 <script>
 import MainAVue from "@/components/MainA.vue";
-import MainBVue from "@/components/MainB.vue";
 import MainCVue from "@/components/MainC.vue";
 
 export default {
   name: "MainView",
   components: {
     MainAVue,
-    MainBVue,
     MainCVue,
   },
   data() {
