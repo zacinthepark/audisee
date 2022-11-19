@@ -19,7 +19,7 @@ const routes = [
     component: SearchView,
   },
   {
-    path: "/main",
+    path: "/main/:movie_id",
     name: "MainView",
     component: MainView,
   },

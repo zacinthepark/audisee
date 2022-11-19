@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <h1>RecommendView</h1>
-    <h1>비슷한 영화 추천</h1>
-    <RecommendItem
-      v-for="movie in movies"
-      :key="movie.id"
-      :movie="movie"
-    />
+  <div class="text-white">
+    <h1 class="pb-5">비슷한 영화 추천</h1>
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+      <RecommendItem v-for="movie in movies" :key="movie.id" :movie="movie" />
+    </div>
   </div>
 </template>
 
@@ -20,11 +17,11 @@ export default {
   },
   computed: {
     movies() {
-      return this.$store.state.movies
+      return this.$store.state.movies;
     },
   },
   created() {
-      this.$store.dispatch('getMovies')
+    this.$store.dispatch("getMovies");
   },
 };
 </script>

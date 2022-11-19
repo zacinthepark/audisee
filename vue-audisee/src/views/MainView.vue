@@ -48,6 +48,11 @@ export default {
       vote_average: 4.5,
     };
   },
+  computed: {
+    movies() {
+      return this.$store.state.movies;
+    },
+  },
 };
 </script>
 
