@@ -1,26 +1,47 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <!-- NavBar 자체를 로그인 되면 보이게 추후 수정 -->
+    <NavBar />
+    <div class="m-5 p-5">
+      <router-view />
+    </div>
+  </div>
 </template>
 
+<script>
+import NavBar from "@/components/NavBar.vue";
+
+export default {
+  name: "App",
+  components: {
+    NavBar,
+  },
+};
+</script>
+
 <style>
+@font-face {
+  font-family: "LineSeed";
+  src: url("./assets/fonts/LINESeedKR-Bd.ttf") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LineSeed";
+  src: url("./assets/fonts/LINESeedKR-Rg.ttf") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LineSeed";
+  src: url("./assets/fonts/LINESeedKR-Th.ttf") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  font-size: 50px;
+  font-family: font_thin;
 }
 </style>
