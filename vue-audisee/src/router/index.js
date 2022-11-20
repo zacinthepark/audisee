@@ -19,11 +19,6 @@ const routes = [
     component: SearchView,
   },
   {
-    path: "/main/:movie_id",
-    name: "MainView",
-    component: MainView,
-  },
-  {
     path: "/home",
     name: "HomeView",
     component: HomeView,
@@ -57,6 +52,11 @@ const routes = [
     path: "/signup",
     name: "SignupView",
     component: SignupView,
+  },
+  {
+    path: "/:id",
+    name: "MainView",
+    component: MainView,
   },
 ];
 

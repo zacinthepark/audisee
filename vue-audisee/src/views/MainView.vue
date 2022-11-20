@@ -1,17 +1,23 @@
 <template>
   <div class="text-white">
     <div class="d-flex">
-      <b-container>
-        <b-card-img class="rounded float-end" :src="`${poster_path}`" alt="#" />
+      <b-container class="me-5">
+        <b-card-img
+          style="width: 300px"
+          class="rounded float-end"
+          :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
+          alt="#"
+        />
       </b-container>
       <b-container>
-        <br />
-        <div class="mb-5 text-start">
-          <h3>{{ title }}</h3>
-          <h6 class="opacity-50">{{ release_date }}</h6>
+        <div class="mb-5 text-start col-6">
+          <h3>{{ movie.title }}</h3>
+          <h6 class="opacity-50">{{ movie.release_date }}</h6>
           <br />
-          <h6>{{ genre }}</h6>
-          <h6>★ {{ vote_average }}</h6>
+          <h6>{{ movie.genre }}</h6>
+          <h6>★ {{ movie.vote_average }}</h6>
+          <br />
+          <h6>{{ movie.overview }}</h6>
         </div>
       </b-container>
     </div>
@@ -41,20 +47,26 @@ export default {
   },
   data() {
     return {
-      movieTitle: "블랙팬서",
-      genre: "큐티 섹시",
-      overview: "어쩌구저쩌구 박진우 바보",
-      release_date: "2014.02.14",
-      poster_path: "https://newsimg.sedaily.com/2018/01/18/1RUH59AFMV_1.jpg",
-      popularity: 121212121,
-      vote_count: 2324351,
-      vote_average: 4.5,
+      movie: null,
     };
   },
   computed: {
     movies() {
       return this.$store.state.movies;
     },
+  },
+  methods: {
+    getMovieById(id) {
+      for (const movie of this.movies) {
+        if (movie.id === Number(id)) {
+          this.movie = movie;
+          break;
+        }
+      }
+    },
+  },
+  created() {
+    this.getMovieById(this.$route.params.id);
   },
 };
 </script>

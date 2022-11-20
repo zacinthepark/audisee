@@ -1,5 +1,5 @@
 <template>
-  <div class="col" @click="moveMain">
+  <div @click="goMainView(movie.id)" class="col">
     <img
       class="m-2"
       :src="`https://image.tmdb.org/t/p/original${movie.poster_path}`"
@@ -16,13 +16,9 @@ export default {
   props: {
     movie: Object,
   },
-
   methods: {
-    moveMain() {
-      this.$router.push({
-        name: "MainView",
-        parmas: { movie_id: this.movie.id },
-      });
+    goMainView(id) {
+      this.$router.push({ name: "MainView", params: { id } });
     },
   },
 };
