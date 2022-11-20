@@ -47,7 +47,6 @@ export default {
         password1: password1,
         password2: password2,
       }
-
       this.$store.dispatch('signUp', payload)
     }
   }

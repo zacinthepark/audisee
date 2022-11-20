@@ -47,6 +47,8 @@ export default new Vuex.Store({
           username: payload.username,
           password1: payload.password1,
           password2: payload.password2,
+          first_name: payload.firstName,
+          last_name: payload.lastName,
         }
       })
         .then((response) => {
