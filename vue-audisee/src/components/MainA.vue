@@ -15,24 +15,33 @@
       </div>
     </div>
     <div class="col">
-      <h1>MainAItem</h1>
-      <MainAItem 
-        :movie="movie" 
-        v-for="music in musics"
-        :key="music.id"
-        :music="music"
-      />
+      <Swiper class="swiper" :options="swiperOption">
+        <MainAItem
+          :movie="movie"
+          v-for="music in musics"
+          :key="music.id"
+          :music="music"
+        />
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+      </Swiper>
     </div>
   </div>
 </template>
 
 <script>
 import MainAItem from "@/components/MainAItem";
+// import "swiper/dist/css/swiper.css";
+import { Swiper, directive } from "vue-awesome-swiper";
 
 export default {
   name: "MainA",
   components: {
     MainAItem,
+    Swiper,
+  },
+  directives: {
+    swiper: directive,
   },
   props: {
     movie: Object,
@@ -41,6 +50,24 @@ export default {
     musics() {
       return this.$store.state.musics;
     },
+  },
+  data() {
+    return {
+      swiperOption: {
+        slidesPerView: 6,
+        spaceBetween: 5,
+        slidesPerGroup: 5,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
+    };
   },
 };
 </script>
