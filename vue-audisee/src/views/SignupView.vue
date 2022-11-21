@@ -19,7 +19,7 @@
           <label for="password2">비밀번호 확인: </label>
           <input type="text" id="password2" v-model="password2" /><br />
 
-          <input @click="goHome" type="submit" value="회원가입" />
+          <input type="submit" value="회원가입" />
         </form>
       </div>
     </div>
@@ -48,10 +48,11 @@ export default {
         password2: password2,
       };
       this.$store.dispatch("signUp", payload);
-    },
-    goHome() {
       this.$router.push({ name: "HomeView" });
     },
+    // goHome() {
+    //   this.$router.push({ name: "HomeView" });
+    // },
   },
 };
 </script>
