@@ -1,10 +1,18 @@
 <template>
-  <div>
+  <div class="text-white">
     <h1>ProfileView</h1>
     <h1>ProfileMovies</h1>
-    <ProfileLikeVue v-for="movie in myMovies" :key="movie.id" :my-movie="movie"/>
+    <ProfileLikeVue
+      v-for="movie in myMovies"
+      :key="movie.id"
+      :my-movie="movie"
+    />
     <h1>ProfileTracks</h1>
-    <ProfilePlaylistVue v-for="track in myTracks" :key="track.id" :my-track="track"/>
+    <ProfilePlaylistVue
+      v-for="track in myTracks"
+      :key="track.id"
+      :my-track="track"
+    />
   </div>
 </template>
 
@@ -27,8 +35,8 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('getMyMovies');
-    this.$store.dispatch('getMyTracks');
+    this.$store.dispatch("getMyMovies");
+    this.$store.dispatch("getMyTracks");
   },
 };
 </script>
