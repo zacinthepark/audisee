@@ -1,11 +1,16 @@
 <template>
   <div>
-    <h1>ProfileLike</h1>
+    <h6>{{ myMovie.title }}</h6>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "ProfileLike",
+  props: {
+    myMovie: Object,
+  }
+};
 </script>
 
 <style></style>

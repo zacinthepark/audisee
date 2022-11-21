@@ -3,8 +3,6 @@
   <div
     class="p-5 text-center bg-image"
     style="
-      /* 여기에 영화 사진 같은거 넣으면 좋을 거 같다
-      하지만 그거하는 거 뭐 다 좋은데 배경 다크 투명도 넣어야댐 */
       background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
       height: 500px;
     "

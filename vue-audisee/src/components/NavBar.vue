@@ -3,7 +3,7 @@
     <!-- As a link -->
     <b-navbar variant="faded" type="light">
       <div class="container-fluid">
-        <b-navbar-brand href="#" class="text-white tw-bold"
+        <b-navbar-brand href="Home" class="text-white tw-bold"
           >AudiSee</b-navbar-brand
         >
         <img
