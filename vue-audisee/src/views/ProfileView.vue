@@ -1,8 +1,18 @@
 <template>
-  <div>
+  <div class="text-white">
     <h1>ProfileView</h1>
-    <ProfileLikeVue />
-    <ProfilePlaylistVue />
+    <h1>ProfileMovies</h1>
+    <ProfileLikeVue
+      v-for="movie in myMovies"
+      :key="movie.id"
+      :my-movie="movie"
+    />
+    <h1>ProfileTracks</h1>
+    <ProfilePlaylistVue
+      v-for="track in myTracks"
+      :key="track.id"
+      :my-track="track"
+    />
   </div>
 </template>
 
@@ -15,6 +25,18 @@ export default {
   components: {
     ProfileLikeVue,
     ProfilePlaylistVue,
+  },
+  computed: {
+    myMovies() {
+      return this.$store.state.myMovies;
+    },
+    myTracks() {
+      return this.$store.state.myTracks;
+    },
+  },
+  created() {
+    this.$store.dispatch("getMyMovies");
+    this.$store.dispatch("getMyTracks");
   },
 };
 </script>

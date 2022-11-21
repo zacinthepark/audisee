@@ -16,6 +16,14 @@
           <br />
           <h6>{{ movie.genre }}</h6>
           <h6>★ {{ movie.vote_average }}</h6>
+          <button
+            type="button"
+            class="btn btn-outline-none fs-3 fw-bold btn-lg"
+            style="color: red"
+            @click="addToMyMovie"
+          >
+            ❤
+          </button>
           <br />
           <h6>{{ movie.overview }}</h6>
         </div>
@@ -40,6 +48,9 @@
 <script>
 import MainAVue from "@/components/MainA.vue";
 import MainCVue from "@/components/MainC.vue";
+import axios from "axios";
+
+const API_URL = "http://127.0.0.1:8000";
 
 export default {
   name: "MainView",
@@ -67,9 +78,31 @@ export default {
         }
       }
     },
+    addToMyMovie() {
+      const title = this.movie.title;
+      const poster_path = this.movie.poster_path;
+      axios({
+        method: "post",
+        url: `${API_URL}/playlist/movies/`,
+        data: {
+          title: title,
+          poster_path: poster_path,
+        },
+        headers: {
+          Authorization: `Token ${this.$store.state.token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   created() {
     this.getMovieById(this.$route.params.id);
+    this.$store.dispatch("getMusics");
   },
 };
 </script>
