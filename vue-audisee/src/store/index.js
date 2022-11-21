@@ -15,6 +15,7 @@ export default new Vuex.Store({
     movies: [],
     musics: [],
     myMovies: [],
+    myTracks: [],
     token: null,
   },
   getters: {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     },
     GET_MY_MOVIES(state, myMovies) {
       state.myMovies = myMovies
+    },
+    GET_MY_TRACKS(state, myTracks) {
+      state.myTracks = myTracks
     },
     SAVE_TOKEN(state, token) {
       state.token = token
@@ -70,6 +74,21 @@ export default new Vuex.Store({
       })
         .then((response) => {
           context.commit('GET_MY_MOVIES', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    getMyTracks(context) {
+      axios({
+        method: 'get',
+        url: `${API_URL}/playlist/tracks/`,
+        headers: {
+          Authorization: `Token ${this.state.token}`
+        },
+      })
+        .then((response) => {
+          context.commit('GET_MY_TRACKS', response.data)
         })
         .catch((error) => {
           console.log(error)
