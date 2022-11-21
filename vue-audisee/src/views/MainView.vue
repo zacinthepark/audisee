@@ -60,9 +60,6 @@ export default {
     movies() {
       return this.$store.state.movies;
     },
-    musics() {
-      return this.$store.state.musics;
-    },
   },
   methods: {
     getMovieById(id) {

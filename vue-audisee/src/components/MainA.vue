@@ -15,7 +15,13 @@
       </div>
     </div>
     <div class="col">
-      <MainAItem :movie="movie" />
+      <h1>MainAItem</h1>
+      <MainAItem 
+        :movie="movie" 
+        v-for="music in musics"
+        :key="music.id"
+        :music="music"
+      />
     </div>
   </div>
 </template>
@@ -30,6 +36,11 @@ export default {
   },
   props: {
     movie: Object,
+  },
+  computed: {
+    musics() {
+      return this.$store.state.musics;
+    },
   },
 };
 </script>
