@@ -12,6 +12,7 @@
       <b-container>
         <div class="mb-5 text-start col-6">
           <h3>{{ movie.title }}</h3>
+          <button @click="addToMyMovie">Add to Playlist</button>
           <h6 class="opacity-50">{{ movie.release_date }}</h6>
           <br />
           <h6>{{ movie.genre }}</h6>
@@ -40,6 +41,9 @@
 <script>
 import MainAVue from "@/components/MainA.vue";
 import MainCVue from "@/components/MainC.vue";
+import axios from 'axios';
+
+const API_URL = 'http://127.0.0.1:8000'
 
 export default {
   name: "MainView",
@@ -56,6 +60,9 @@ export default {
     movies() {
       return this.$store.state.movies;
     },
+    musics() {
+      return this.$store.state.musics;
+    },
   },
   methods: {
     getMovieById(id) {
@@ -67,9 +74,31 @@ export default {
         }
       }
     },
+    addToMyMovie() {
+      const title = this.movie.title
+      const poster_path = this.movie.poster_path
+      axios({
+        method: 'post',
+        url: `${API_URL}/playlist/movies/`,
+        data: {
+          title: title,
+          poster_path: poster_path,
+        },
+        headers: {
+          Authorization: `Token ${this.$store.state.token}`
+        }
+      })
+        .then((response) => {
+          console.log(response)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
   },
   created() {
     this.getMovieById(this.$route.params.id);
+    this.$store.dispatch("getMusics")
   },
 };
 </script>
