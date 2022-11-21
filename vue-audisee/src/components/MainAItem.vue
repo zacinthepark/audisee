@@ -5,7 +5,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "MainAItem",
+  // movie 프롭 받아놓음
+  props: {
+    movie: Object,
+  },
+};
 </script>
 
 <style></style>

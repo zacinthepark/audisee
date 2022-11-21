@@ -25,9 +25,11 @@
     <div>
       <b-tabs class="fs-6 m-5" pills card>
         <b-tab class="fs-6" title="추천음악" active
-          ><MainAVue :movie-title="movieTitle"
+          ><MainAVue :movie="movie"
         /></b-tab>
-        <b-tab class="fs-6" title="상세정보" lazy> <MainCVue /></b-tab>
+        <b-tab class="fs-6" title="상세정보" lazy>
+          <MainCVue :movie="movie"
+        /></b-tab>
       </b-tabs>
     </div>
   </div>
@@ -60,6 +62,7 @@ export default {
       for (const movie of this.movies) {
         if (movie.id === Number(id)) {
           this.movie = movie;
+          this.movieTitle = movie.title;
           break;
         }
       }
