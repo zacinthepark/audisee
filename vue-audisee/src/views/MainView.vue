@@ -16,16 +16,16 @@
           <br />
           <h6>{{ movie.genre }}</h6>
           <h6>★ {{ movie.vote_average }}</h6>
+          <br />
+          <h6>{{ movie.overview }}</h6>
           <button
             type="button"
-            class="btn btn-outline-none fs-3 fw-bold btn-lg"
+            class="btn btn-outline-none fs-4 fw-bold btn-lg"
             style="color: red"
             @click="addToMyMovie"
           >
             ❤
           </button>
-          <br />
-          <h6>{{ movie.overview }}</h6>
         </div>
       </b-container>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card bg-transparent border-transparent" style="width: 18rem">
+    <div class="card bg-transparent border-transparent" style="width: 12rem">
       <img
         class="rounded card-img-top"
         :src="`https://image.tmdb.org/t/p/original${myMovie.poster_path}`"
@@ -8,13 +8,13 @@
       />
 
       <div class="card-body">
-        <span>{{ myMovie.title }}</span>
+        <span class="fs-5">{{ myMovie.title }}</span>
         <button
           type="button"
-          class="btn btn-outline-none fs-4 fw-bold btn-lg"
+          class="btn btn-outline-none fs-5 fw-bold btn-lg"
           style="color: red"
         >
-          ❤
+          x
         </button>
       </div>
     </div>

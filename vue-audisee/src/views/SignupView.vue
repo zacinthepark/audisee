@@ -1,8 +1,8 @@
 <template>
-  <div class="text-white">
+  <div class="text-white container" style="width: 800px">
     <router-link
       :to="{ name: 'LoginView' }"
-      class="d-grid gap-2 d-md-flex justify-content-md-end text-decoration-none"
+      class="d-grid pb-3 gap-2 d-md-flex justify-content-md-end text-decoration-none"
     >
       <button class="btn btn-outline-light" type="button">Login</button>
     </router-link>
@@ -42,9 +42,7 @@
             </div>
           </div>
           <div class="m-3 row card-text fs-5">
-            <h6 for="password2" class="col-sm-2 col-form-label">
-              비밀번호 확인
-            </h6>
+            <label for="password2" class="col-sm-2 col-form-label">확인</label>
             <div>
               <input
                 type="password"
