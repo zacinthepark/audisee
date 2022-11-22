@@ -41,10 +41,9 @@
               /><br />
             </div>
           </div>
-          <button @click="goHome" type="submit" value="LogIn" class="btn btn-outline-light">
+          <button type="submit" value="LogIn" class="btn btn-outline-light">
             Login
           </button>
-
         </form>
       </div>
     </div>
@@ -69,8 +68,6 @@ export default {
         password: password,
       };
       this.$store.dispatch("logIn", payload);
-    },
-    goHome() {
       this.$router.push({ name: "HomeView" });
     },
   },
