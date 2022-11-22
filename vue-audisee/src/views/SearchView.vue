@@ -4,7 +4,7 @@
       <!-- 오빠야가 주는 장르 분위기 넣기 -->
       <h3>음산한 깜찍한 커여운</h3>
       <br />
-      <h3>음산한 깜찍한 커여운 어쩌구</h3>
+      <h3><span @click="goRecommend">음산한</span> 깜찍한 커여운 어쩌구</h3>
       <br />
       <h3>음산한 깜찍한 커여운</h3>
       <br />
@@ -64,6 +64,9 @@ export default {
         params: { id: movie.id },
       });
       this.searchMovie = "";
+    },
+    goRecommend() {
+      this.$router.push({ name: "RecommendView" });
     },
   },
   created() {
