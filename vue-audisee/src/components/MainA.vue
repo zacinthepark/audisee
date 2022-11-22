@@ -15,25 +15,20 @@
       </div>
     </div>
     <div class="col">
-      <MainAItem
-        :movie="movie"
-        v-for="music in musics"
-        :key="music.id"
-        :music="music"
-      />
+      <MainAItemList />
     </div>
   </div>
 </template>
 
 <script>
-import MainAItem from "@/components/MainAItem";
+import MainAItemList from "@/components/MainAItemList";
 // import "swiper/dist/css/swiper.css";
 // import { Swiper, directive } from "vue-awesome-swiper";
 
 export default {
   name: "MainA",
   components: {
-    MainAItem,
+    MainAItemList,
     // Swiper,
   },
   // directives: {
