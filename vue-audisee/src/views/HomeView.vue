@@ -1,21 +1,27 @@
+<!-- Background image -->
 <template>
   <!-- Background image -->
-  <div class="container" style="height: 70vh">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3 fw-normal">오늘은 어떤 영화를 시청하셨나요</h1>
-        <br />
-        <!-- 라우터 링크 하얀색으로 바꾸기 -->
-        <router-link :to="{ name: 'SearchView' }">
-          <b-iconstack animation="cylon-vertical" rotate="90">
-            <b-icon stacked icon="chevron-right" shift-h="-4"></b-icon>
-            <b-icon stacked icon="chevron-right" shift-h="0"></b-icon>
-            <b-icon stacked icon="chevron-right" shift-h="4"></b-icon>
-          </b-iconstack>
-        </router-link>
+  <div class="bg-image shadow-2-strong">
+    <div>
+      <div
+        class="container d-flex align-items-center justify-content-center text-center h-100"
+      >
+        <div class="text-white">
+          <h1 class="mb-3">방금 영화를 시청하셨나요?</h1>
+          <br />
+          <router-link
+            :to="{ name: 'SearchView' }"
+            class="btn btn-outline-light btn-lg m-2"
+            role="button"
+            rel="nofollow"
+            target="_blank"
+            >START Audisee</router-link
+          >
+        </div>
       </div>
     </div>
   </div>
+  <!-- Background image -->
 </template>
 
 <script>
@@ -24,4 +30,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #intro {
+    margin-top: -58.59px;
+  }
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
+</style>

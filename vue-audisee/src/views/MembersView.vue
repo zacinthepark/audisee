@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NavBar />
+
     <h1>MembersView</h1>
     <MembersItemVue />
   </div>

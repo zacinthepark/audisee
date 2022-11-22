@@ -1,5 +1,6 @@
 <template>
   <div class="text-white">
+    <NavBar />
     <div class="d-flex">
       <b-container class="me-5">
         <b-card-img
