@@ -11,20 +11,16 @@
       <div class="opacity-75">
         <div class="d-inline pe-2">총 40 곡</div>
         |
-        <div class="d-inline ps-2">2022.11.16</div>
+        <div class="d-inline ps-2">{{ nowDate }}</div>
       </div>
     </div>
     <div class="col">
-      <Swiper class="swiper" :options="swiperOption">
-        <MainAItem
-          :movie="movie"
-          v-for="music in musics"
-          :key="music.id"
-          :music="music"
-        />
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-      </Swiper>
+      <MainAItem
+        :movie="movie"
+        v-for="music in musics"
+        :key="music.id"
+        :music="music"
+      />
     </div>
   </div>
 </template>
@@ -32,17 +28,17 @@
 <script>
 import MainAItem from "@/components/MainAItem";
 // import "swiper/dist/css/swiper.css";
-import { Swiper, directive } from "vue-awesome-swiper";
+// import { Swiper, directive } from "vue-awesome-swiper";
 
 export default {
   name: "MainA",
   components: {
     MainAItem,
-    Swiper,
+    // Swiper,
   },
-  directives: {
-    swiper: directive,
-  },
+  // directives: {
+  //   swiper: directive,
+  // },
   props: {
     movie: Object,
   },
@@ -53,21 +49,39 @@ export default {
   },
   data() {
     return {
-      swiperOption: {
-        slidesPerView: 6,
-        spaceBetween: 5,
-        slidesPerGroup: 5,
-        loopFillGroupWithBlank: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      },
+      // swiperOption: {
+      //   slidesPerView: 6,
+      //   spaceBetween: 5,
+      //   slidesPerGroup: 5,
+      //   loopFillGroupWithBlank: true,
+      //   pagination: {
+      //     el: ".swiper-pagination",
+      //     clickable: true,
+      //   },
+      //   navigation: {
+      //     nextEl: ".swiper-button-next",
+      //     prevEl: ".swiper-button-prev",
+      //   },
+      // },
+      timer: null,
+      nowDate: "",
     };
+  },
+  mounted() {
+    this.timer = setInterval(() => {
+      this.setNowTimes();
+    }, 1000);
+  },
+  methods: {
+    setNowTimes() {
+      let myDate = new Date();
+      let yy = String(myDate.getFullYear());
+      let mm = myDate.getMonth() + 1;
+      let dd = String(
+        myDate.getDate() < 10 ? "0" + myDate.getDate() : myDate.getDate()
+      );
+      this.nowDate = yy + "-" + mm + "-" + dd;
+    },
   },
 };
 </script>

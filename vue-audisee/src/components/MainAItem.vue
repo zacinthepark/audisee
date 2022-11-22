@@ -7,7 +7,7 @@
         <span>{{ music.track_name }}</span>
         <button
           type="button"
-          class="btn btn-outline-none fs-4 fw-bold btn-lg"
+          class="btn btn-outline-none fs-5 fw-bold btn-lg"
           style="color: red"
           @click="addToMyTrack"
         >
@@ -21,7 +21,7 @@
 <script>
 import axios from "axios";
 // import "swiper/dist/css/swiper.css";
-import { SwiperSlide } from "vue-awesome-swiper";
+// import { SwiperSlide } from "vue-awesome-swiper";
 
 const API_URL = "http://127.0.0.1:8000";
 
@@ -29,7 +29,7 @@ export default {
   name: "MainAItem",
   // movie 프롭 받아놓음
   components: {
-    SwiperSlide,
+    // SwiperSlide,
   },
   props: {
     movie: Object,
