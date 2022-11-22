@@ -1,4 +1,3 @@
-
 import Vue from "vue"
 import Vuex from "vuex"
 import axios from 'axios'
@@ -35,6 +34,12 @@ export default new Vuex.Store({
       state.myMovies = myMovies
     },
     GET_MY_TRACKS(state, myTracks) {
+      state.myTracks = myTracks
+    },
+    DELETE_MY_MOVIE(state, myMovies) {
+      state.myMovies = myMovies
+    },
+    DELETE_MY_TRACK(state, myTracks) {
       state.myTracks = myTracks
     },
     SAVE_TOKEN(state, token) {
@@ -92,6 +97,36 @@ export default new Vuex.Store({
       })
         .then((response) => {
           context.commit('GET_MY_TRACKS', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    deleteMyMovie(context, movie_id) {
+      axios({
+        method: 'delete',
+        url: `${API_URL}/playlist/movies/${movie_id}`,
+        headers: {
+          Authorization: `Token ${this.state.token}`
+        },
+      })
+        .then((response) => {
+          context.commit('DELETE_MY_MOVIE', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    deleteMyTrack(context, track_id) {
+      axios({
+        method: 'delete',
+        url: `${API_URL}/playlist/tracks/${track_id}`,
+        headers: {
+          Authorization: `Token ${this.state.token}`
+        },
+      })
+        .then((response) => {
+          context.commit('DELETE_MY_TRACK', response.data)
         })
         .catch((error) => {
           console.log(error)

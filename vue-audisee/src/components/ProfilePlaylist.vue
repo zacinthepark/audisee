@@ -23,7 +23,12 @@ export default {
   props: {
     myTrack: Object,
   },
-  components: {},
+  methods: {
+    deleteMyTrack() {
+      const track_id = this.myTrack.id
+      this.$store.dispatch('deleteMyTrack', track_id)
+    }
+  },
 };
 </script>
 
