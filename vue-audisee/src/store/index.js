@@ -12,6 +12,7 @@ export default new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
     movies: [],
+    recommendedMovies: [],
     musics: [],
     myMovies: [],
     myTracks: [],
