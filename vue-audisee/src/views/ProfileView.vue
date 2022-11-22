@@ -1,5 +1,7 @@
 <template>
   <div class="text-white">
+    <NavBar />
+
     <h1 class="fw-bold">나 의 프로필</h1>
     <h3 class="p-3 mt-5 mb-2 text-start">
       총 {{ myMoviesLength }}개의 영화를 좋아해요
@@ -55,7 +57,7 @@ export default {
   updated() {
     // this.$store.dispatch("getMyMovies");
     // this.$store.dispatch("getMyTracks");
-  }
+  },
 };
 </script>
 

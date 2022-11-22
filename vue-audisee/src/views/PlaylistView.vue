@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NavBar />
+
     <h1>PlaylistView</h1>
     <PlaylistItemVue />
   </div>

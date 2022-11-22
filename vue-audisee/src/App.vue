@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <!-- NavBar 자체를 로그인 되면 보이게 추후 수정 -->
-    <NavBar />
     <div class="m-5 p-5">
       <router-view />
     </div>
@@ -9,13 +8,9 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
-
 export default {
   name: "App",
-  components: {
-    NavBar,
-  },
+  components: {},
 };
 </script>
 

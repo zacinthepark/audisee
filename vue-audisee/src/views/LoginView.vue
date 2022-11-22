@@ -1,53 +1,78 @@
 <template>
-  <div class="text-white container" style="width: 800px">
-    <router-link
-      :to="{ name: 'SignupView' }"
-      class="d-grid pb-3 gap-2 d-md-flex justify-content-md-end text-decoration-none"
-    >
-      <button class="btn btn-outline-light" type="button">Signup</button>
-    </router-link>
-    <div class="card bg-transparent border-secondary">
-      <h3 class="card-header">
-        <b-navbar-brand href="Home" class="text-white tw-bold"
-          >AudiSee</b-navbar-brand
-        >
-      </h3>
-      <div class="card-body">
-        <h4 class="card-subtitle my-1">Audisee에 로그인하세요</h4>
-        <form @submit.prevent="logIn">
-          <div class="m-3 row card-text fs-5">
-            <label for="username" class="col-sm-2 col-form-label"
-              >아이디
-            </label>
-            <div>
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                v-model="username"
-              />
+  <!-- Section: Design Block -->
+  <section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+      <div class="row gx-lg-5 align-items-center mb-5">
+        <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+          <h1
+            class="my-5 display-5 fw-bold ls-tight"
+            style="color: hsl(218, 81%, 95%)"
+          >
+            Audisee <br />
+            <span class="fs-2" style="color: hsl(218, 81%, 75%)"
+              >당신의 취향을 찾아보세요</span
+            >
+          </h1>
+        </div>
+
+        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+          <div
+            id="radius-shape-1"
+            class="position-absolute rounded-circle shadow-5-strong"
+          ></div>
+          <div
+            id="radius-shape-2"
+            class="position-absolute shadow-5-strong"
+          ></div>
+
+          <div class="card bg-glass">
+            <div class="card-body px-4 py-5 px-md-5">
+              <form @submit.prevent="logIn">
+                <!-- User input -->
+                <div class="form-outline mb-4">
+                  <h6 class="text-start">Username</h6>
+                  <input
+                    value="Username"
+                    v-model="username"
+                    type="text"
+                    id="username"
+                    class="form-control"
+                  />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <h6 class="text-start">Password</h6>
+                  <input
+                    value="Password"
+                    v-model="password"
+                    type="password"
+                    id="password"
+                    class="form-control"
+                  />
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                  Login
+                </button>
+              </form>
+              <div>
+                <p class="mb-0 fs-5">
+                  아직 계정이 없나요?
+                  <router-link
+                    :to="{ name: 'SignupView' }"
+                    class="fw-bold text-primary text-decoration-none"
+                    >Sign Up</router-link
+                  >
+                </p>
+              </div>
             </div>
           </div>
-          <div class="m-3 row card-text fs-5">
-            <label for="password" class="col-sm-2 col-form-label"
-              >비밀번호
-            </label>
-            <div>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                v-model="password"
-              /><br />
-            </div>
-          </div>
-          <button type="submit" value="LogIn" class="btn btn-outline-light">
-            Login
-          </button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -74,4 +99,48 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(
+      650px circle at 0% 0%,
+      hsl(218, 41%, 35%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    );
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+</style>
