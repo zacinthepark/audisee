@@ -52,6 +52,10 @@ export default {
     this.$store.dispatch("getMyMovies");
     this.$store.dispatch("getMyTracks");
   },
+  updated() {
+    // this.$store.dispatch("getMyMovies");
+    // this.$store.dispatch("getMyTracks");
+  }
 };
 </script>
 

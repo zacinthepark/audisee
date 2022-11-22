@@ -1,7 +1,8 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import axios from "axios";
-import createPersistedState from "vuex-persistedstate";
+import Vue from "vue"
+import Vuex from "vuex"
+import axios from 'axios'
+import createPersistedState from 'vuex-persistedstate'
+
 
 Vue.use(Vuex);
 
@@ -36,6 +37,12 @@ export default new Vuex.Store({
     },
     GET_MY_TRACKS(state, myTracks) {
       state.myTracks = myTracks;
+    },
+    DELETE_MY_MOVIE(state, myMovies) {
+      state.myMovies = myMovies
+    },
+    DELETE_MY_TRACK(state, myTracks) {
+      state.myTracks = myTracks
     },
     SAVE_TOKEN(state, token) {
       state.token = token;
@@ -96,6 +103,36 @@ export default new Vuex.Store({
         .catch((error) => {
           console.log(error);
         });
+    },
+    deleteMyMovie(context, movie_id) {
+      axios({
+        method: 'delete',
+        url: `${API_URL}/playlist/movies/${movie_id}`,
+        headers: {
+          Authorization: `Token ${this.state.token}`
+        },
+      })
+        .then((response) => {
+          context.commit('DELETE_MY_MOVIE', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    deleteMyTrack(context, track_id) {
+      axios({
+        method: 'delete',
+        url: `${API_URL}/playlist/tracks/${track_id}`,
+        headers: {
+          Authorization: `Token ${this.state.token}`
+        },
+      })
+        .then((response) => {
+          context.commit('DELETE_MY_TRACK', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
     signUp(context, payload) {
       axios({

@@ -27,6 +27,12 @@ export default {
   props: {
     myMovie: Object,
   },
+  methods: {
+    deleteMyMovie() {
+      const movie_id = this.myMovie.id
+      this.$store.dispatch('deleteMyMovie', movie_id)
+    },
+  }
 };
 </script>
 
