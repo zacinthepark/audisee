@@ -14,6 +14,11 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/",
+    name: "LoginView",
+    component: LoginView,
+  },
+  {
     path: "/search",
     name: "SearchView",
     component: SearchView,

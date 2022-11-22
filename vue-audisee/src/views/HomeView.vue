@@ -7,12 +7,6 @@
       height: 500px;
     "
   >
-    <router-link
-      :to="{ name: 'LoginView' }"
-      class="d-grid gap-2 d-md-flex justify-content-md-end text-decoration-none"
-    >
-      <button class="btn btn-outline-light" type="button">Login</button>
-    </router-link>
     <div class="container" style="height: 70vh">
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">

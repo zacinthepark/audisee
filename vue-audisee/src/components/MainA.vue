@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <div class="col-4 bg-red text-start">
+  <div class="row justify-content-start">
+    <div class="col-3 bg-red text-start">
       <br />
       <br />
       <h6 class="fw-light">나를 위한 새로운 발견</h6>
@@ -14,7 +14,7 @@
         <div class="d-inline ps-2">2022.11.16</div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-3">
       <Swiper class="swiper" :options="swiperOption">
         <MainAItem
           :movie="movie"

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div class="card bg-transparent border-transparent" style="width: 18rem">
+    <div class="card bg-transparent border-transparent" style="width: 12rem">
       <img class="rounded card-img-top" :src="myTrack.cover_path" alt="#" />
 
       <div class="card-body">
-        <span>{{ myTrack.track_name }}</span>
+        <span class="fs-5">{{ myTrack.track_name }}</span>
         <button
           type="button"
-          class="btn btn-outline-none fs-4 fw-bold btn-lg"
+          class="btn btn-outline-none fs-5 fw-bold btn-lg"
           style="color: red"
         >
-          ❤
+          x
         </button>
       </div>
     </div>
