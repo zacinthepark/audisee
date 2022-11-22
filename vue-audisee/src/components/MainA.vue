@@ -14,7 +14,7 @@
         <div class="d-inline ps-2">2022.11.16</div>
       </div>
     </div>
-    <div class="col-3">
+    <div class="col">
       <Swiper class="swiper" :options="swiperOption">
         <MainAItem
           :movie="movie"

@@ -1,8 +1,8 @@
 <template>
-  <div class="text-white">
+  <div class="text-white container" style="width: 800px">
     <router-link
       :to="{ name: 'SignupView' }"
-      class="d-grid gap-2 d-md-flex justify-content-md-end text-decoration-none"
+      class="d-grid pb-3 gap-2 d-md-flex justify-content-md-end text-decoration-none"
     >
       <button class="btn btn-outline-light" type="button">Signup</button>
     </router-link>
