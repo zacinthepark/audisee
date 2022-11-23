@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card h-100 bg-transparent border-transparent"
+    class="card bg-transparent border-transparent"
     style="width: 18rem"
   >
     <img class="rounded card-img-top" :src="music.cover_path" alt="#" />
