@@ -14,6 +14,7 @@ export default new Vuex.Store({
     recommendedMovies: [],
     recommendedMood: "",
     musics: [],
+    recommendedMusics: [],
     myMovies: [],
     myTracks: [],
     token: null,
@@ -74,6 +75,9 @@ export default new Vuex.Store({
     },
     GET_MOVIE_RECOMMEND_TEN(state, movies) {
       state.recommendedMovies = movies
+    },
+    GET_MUSIC_RECOMMENDATION(state, musics) {
+      state.recommendedMusics = musics
     },
     SAVE_TOKEN(state, token) {
       state.token = token
@@ -166,7 +170,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendOne(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       console.log(mood)
       console.log(this.recommendedMood)
       axios({
@@ -185,7 +189,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendTwo(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       console.log(this.recommendedMood)
       axios({
         method: "get",
@@ -203,7 +207,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendThree(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -220,7 +224,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendFour(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -237,7 +241,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendFive(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -254,7 +258,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendSix(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -271,7 +275,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendSeven(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -288,7 +292,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendEight(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -305,7 +309,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendNine(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -322,7 +326,7 @@ export default new Vuex.Store({
         })
     },
     getMovieRecommendTen(context, mood) {
-      this.recommendedMood = mood
+      this.state.recommendedMood = mood
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -333,6 +337,23 @@ export default new Vuex.Store({
         .then((response) => {
           // console.log(response.data)
           context.commit("GET_MOVIE_RECOMMEND_TEN", response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    getMusicRecommendation(context) {
+      const mood = this.state.recommendedMood
+      axios({
+        method: 'get',
+        url: `${API_URL}/api/v1/musics/${mood}/`,
+        headers: {
+          Authorization: `Token ${this.state.token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response.data)
+          context.commit('GET_MUSIC_RECOMMENDATION', response.data)
         })
         .catch((error) => {
           console.log(error)

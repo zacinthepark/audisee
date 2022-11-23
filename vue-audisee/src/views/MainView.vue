@@ -105,7 +105,7 @@ export default {
   },
   created() {
     this.getMovieById(this.$route.params.id);
-    this.$store.dispatch("getMusics");
+    this.$store.dispatch("getMusicRecommendation");
   },
 };
 </script>
