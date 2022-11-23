@@ -12,7 +12,7 @@ export default new Vuex.Store({
   state: {
     movies: [],
     recommendedMovies: [],
-    recommendedMood: null,
+    recommendedMood: "",
     musics: [],
     myMovies: [],
     myTracks: [],
@@ -167,6 +167,8 @@ export default new Vuex.Store({
     },
     getMovieRecommendOne(context, mood) {
       this.recommendedMood = mood
+      console.log(mood)
+      console.log(this.recommendedMood)
       axios({
         method: "get",
         url: `${API_URL}/api/v1/movies/${mood}/`,
@@ -175,7 +177,7 @@ export default new Vuex.Store({
         },
       })
         .then((response) => {
-          // console.log(response.data)
+          console.log(response.data)
           context.commit("GET_MOVIE_RECOMMEND_ONE", response.data)
         })
         .catch((error) => {
