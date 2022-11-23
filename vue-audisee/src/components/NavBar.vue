@@ -7,12 +7,10 @@
           >AudiSee</b-navbar-brand
         >
         <router-link :to="{ name: 'ProfileView' }">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-            class="rounded-circle shadow-4"
-            style="width: 50px"
-            alt="Avatar"
-          />
+          <b-skeleton-icon
+            icon="person-fill"
+            :icon-props="{ fontScale: 1, variant: 'light' }"
+          ></b-skeleton-icon>
         </router-link>
       </div>
     </b-navbar>

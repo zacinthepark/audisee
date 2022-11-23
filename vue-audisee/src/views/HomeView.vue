@@ -1,25 +1,11 @@
 <!-- Background image -->
 <template>
-  <!-- Background image -->
-  <div class="bg-image shadow-2-strong">
-    <div>
-      <div
-        class="container d-flex align-items-center justify-content-center text-center h-100"
-      >
-        <div class="text-white">
-          <h1 class="mb-3">방금 영화를 시청하셨나요?</h1>
-          <br />
-          <router-link
-            :to="{ name: 'SearchView' }"
-            class="btn btn-outline-light btn-lg m-2"
-            role="button"
-            >START Audisee</router-link
-          >
-        </div>
-      </div>
+  <div class="wrapper">
+    <div class="content">
+      <h2>AUDISEE</h2>
+      <h2>AUDISEE</h2>
     </div>
   </div>
-  <!-- Background image -->
 </template>
 
 <script>
@@ -29,14 +15,72 @@ export default {
 </script>
 
 <style>
-/* Height for devices larger than 576px */
-@media (min-width: 992px) {
-  #intro {
-    margin-top: -58.59px;
-  }
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.navbar .nav-link {
-  color: #fff !important;
+.wrapper {
+  display: flex;
+  /* background: #000; */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+}
+
+.content h2 {
+  color: #fff;
+  font-size: 8em;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.content h2:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 2px #03a9f4;
+}
+
+.content h2:nth-child(2) {
+  color: #03a9f4;
+  animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      16% 44%,
+      33% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
 }
 </style>
