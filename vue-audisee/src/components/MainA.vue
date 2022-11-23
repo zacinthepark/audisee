@@ -28,12 +28,13 @@
 </template>
 
 <script>
-import MainAItemList from "@/components/MainAItemList";
+// import MainAItemList from "@/components/MainAItemList";
+import MainAItem from "@/components/MainAItem";
 
 export default {
   name: "MainA",
   components: {
-    MainAItemList,
+    MainAItem,
   },
   props: {
     movie: Object,
