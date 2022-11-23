@@ -1,10 +1,13 @@
 <template>
   <div class="container text-white">
+    <NavBarVue />
     <div>
       <!-- 오빠야가 주는 장르 분위기 넣기 -->
       <h3>adventure animation humanism</h3>
       <br />
-      <h3><span @click="goRecommend">thrillers</span> actions comedy romance</h3>
+      <h3>
+        <span @click="goRecommend">thrillers</span> actions comedy romance
+      </h3>
       <br />
       <h3>history music mysteries</h3>
       <br />
@@ -29,9 +32,13 @@
 <script>
 import axios from "axios";
 import _ from "lodash";
+import NavBarVue from "@/components/NavBar.vue";
 
 export default {
   name: "SearchView",
+  components: {
+    NavBarVue,
+  },
   data() {
     return {
       // 장르 넣기
