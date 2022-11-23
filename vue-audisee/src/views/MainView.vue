@@ -18,7 +18,9 @@
           <h6>{{ movie.genre }}</h6>
           <h6>★ {{ movie.vote_average }}</h6>
           <br />
-          <h6>{{ movie.overview }}</h6>
+          <h6>
+            {{ movie.overview.split(" ").slice(0, 30).join(" ") + "..." }}
+          </h6>
           <button
             type="button"
             class="btn btn-outline-none fs-4 fw-bold btn-lg"

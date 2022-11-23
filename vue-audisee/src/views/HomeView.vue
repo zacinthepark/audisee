@@ -13,8 +13,6 @@
             :to="{ name: 'SearchView' }"
             class="btn btn-outline-light btn-lg m-2"
             role="button"
-            rel="nofollow"
-            target="_blank"
             >START Audisee</router-link
           >
         </div>
