@@ -17,6 +17,9 @@ export default new Vuex.Store({
     recommendedMusics: [],
     myMovies: [],
     myTracks: [],
+    memberName: null,
+    memberMovies: [],
+    memberTracks: [],
     token: null,
   },
   getters: {
@@ -25,6 +28,12 @@ export default new Vuex.Store({
     },
     myTrackCount(state) {
       return state.myTracks.length
+    },
+    memberMovieCount(state) {
+      return state.memberMovies.length
+    },
+    memberTrackCount(state) {
+      return state.memberTracks.length
     },
   },
   mutations: {
@@ -39,6 +48,18 @@ export default new Vuex.Store({
     },
     GET_MY_TRACKS(state, myTracks) {
       state.myTracks = myTracks
+    },
+    GET_MEMBER_NAME(state, memberName) {
+      // console.log(memberName)
+      state.memberName = memberName
+    },
+    GET_MEMBER_TRACKS(state, memberTracks) {
+      // console.log(memberTracks)
+      state.memberTracks = memberTracks
+    },
+    GET_MEMBER_MOVIES(state, memberMovies) {
+      // console.log(memberMovies)
+      state.memberMovies = memberMovies
     },
     DELETE_MY_MOVIE(state, myMovies) {
       state.myMovies = myMovies
@@ -134,6 +155,38 @@ export default new Vuex.Store({
       })
         .then((response) => {
           context.commit("GET_MY_TRACKS", response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    getMemberTracks(context, userId) {
+      axios({
+        method: "get",
+        url: `${API_URL}/playlist/member/tracks/${userId}/`,
+        headers: {
+          Authorization: `Token ${this.state.token}`,
+        },
+      })
+        .then((response) => {
+          // console.log(response.data)
+          context.commit("GET_MEMBER_TRACKS", response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    getMemberMovies(context, userId) {
+      axios({
+        method: "get",
+        url: `${API_URL}/playlist/member/movies/${userId}/`,
+        headers: {
+          Authorization: `Token ${this.state.token}`,
+        },
+      })
+        .then((response) => {
+          // console.log(response.data)
+          context.commit("GET_MEMBER_MOVIES", response.data)
         })
         .catch((error) => {
           console.log(error)
@@ -345,7 +398,7 @@ export default new Vuex.Store({
     getMusicRecommendation(context) {
       const mood = this.state.recommendedMood
       axios({
-        method: 'get',
+        method: "get",
         url: `${API_URL}/api/v1/musics/${mood}/`,
         headers: {
           Authorization: `Token ${this.state.token}`,
@@ -353,7 +406,7 @@ export default new Vuex.Store({
       })
         .then((response) => {
           console.log(response.data)
-          context.commit('GET_MUSIC_RECOMMENDATION', response.data)
+          context.commit("GET_MUSIC_RECOMMENDATION", response.data)
         })
         .catch((error) => {
           console.log(error)
