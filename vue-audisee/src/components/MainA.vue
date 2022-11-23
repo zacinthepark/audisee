@@ -19,26 +19,30 @@
       </div>
     </div>
     <div class="col-9">
-      <div class="row row-cols-1 row-cols-md-5 g-4">
+      <VueSlickCarousel v-bind="settings">
         <MainAItem
           :movie="movie"
           v-for="(music, index) in musics"
           :key="`music-${index}`"
           :music="music"
         />
-      </div>
+      </VueSlickCarousel>
     </div>
   </div>
 </template>
 
 <script>
-// import MainAItemList from "@/components/MainAItemList";
 import MainAItem from "@/components/MainAItem";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "MainA",
   components: {
     MainAItem,
+    VueSlickCarousel,
   },
   props: {
     movie: Object,
@@ -52,6 +56,13 @@ export default {
     return {
       timer: null,
       nowDate: "",
+      settings: {
+        infinite: true,
+        slidesToShow: 4,
+        speed: 500,
+        rows: 2,
+        slidesPerRow: 1,
+      },
     };
   },
   mounted() {
