@@ -4,14 +4,13 @@
     <b-navbar variant="faded" type="light">
       <div class="container-fluid">
         <b-navbar-brand href="Home" class="text-white tw-bold"
-          >AudiSee</b-navbar-brand
+          >AUDISEE</b-navbar-brand
         >
-        <router-link :to="{ name: 'ProfileView' }">
-          <b-skeleton-icon
-            icon="person-fill"
-            :icon-props="{ fontScale: 1, variant: 'light' }"
-          ></b-skeleton-icon>
-        </router-link>
+        <b-icon
+          font-scale="0.8"
+          @click="goProfile"
+          icon="person-circle"
+        ></b-icon>
       </div>
     </b-navbar>
   </div>
@@ -20,7 +19,17 @@
 <script>
 export default {
   name: "NavBar",
+  methods: {
+    goProfile() {
+      this.$router.push({ name: "ProfileView" });
+    },
+  },
 };
 </script>
 
-<style></style>
+<style>
+a {
+  text-decoration: none;
+  color: white;
+}
+</style>

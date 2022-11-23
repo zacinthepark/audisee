@@ -1,20 +1,19 @@
 <template>
-  <div
-    class="card bg-transparent border-transparent"
-    style="width: 18rem"
-  >
-    <img class="rounded card-img-top" :src="music.cover_path" alt="#" />
+  <div class="col">
+    <div class="card h-100 bg-transparent border-dark" style="width: 10rem">
+      <img class="rounded card-img-top" :src="music.cover_path" alt="#" />
 
-    <div class="card-body">
-      <span>{{ music.track_name }}</span>
-      <button
-        type="button"
-        class="btn btn-outline-none fs-5 fw-bold btn-lg"
-        style="color: red"
-        @click="addToMyTrack"
-      >
-        ❤
-      </button>
+      <div class="card-body">
+        <span>{{ music.track_name }}</span>
+        <button
+          type="button"
+          class="btn btn-outline-none fs-5 fw-bold btn-lg"
+          style="color: red"
+          @click="addToMyTrack"
+        >
+          ❤
+        </button>
+      </div>
     </div>
   </div>
 </template>

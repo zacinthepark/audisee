@@ -3,8 +3,10 @@
     <div class="col-3 bg-red text-start">
       <br />
       <br />
-      <button @click="updateRecommendations" class="btn btn-primary">음악추천</button>
-      <hr>
+      <button @click="updateRecommendations" class="btn btn-primary">
+        음악추천
+      </button>
+      <hr />
       <h6 class="fw-light">나를 위한 새로운 발견</h6>
       <br />
       <h3 class="fw-normal">{{ movie.title }}</h3>
@@ -16,25 +18,31 @@
         <div class="d-inline ps-2">{{ nowDate }}</div>
       </div>
     </div>
-    <div class="col">
-      <MainAItem
-        :movie="movie"
-        v-for="(music, index) in musics"
-        :key="`music-${index}`"
-        :music="music"
-      />
+    <div class="col-9">
+      <VueSlickCarousel v-bind="settings">
+        <MainAItem
+          :movie="movie"
+          v-for="(music, index) in musics"
+          :key="`music-${index}`"
+          :music="music"
+        />
+      </VueSlickCarousel>
     </div>
   </div>
 </template>
 
 <script>
-// import MainAItemList from "@/components/MainAItemList";
 import MainAItem from "@/components/MainAItem";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "MainA",
   components: {
     MainAItem,
+    VueSlickCarousel,
   },
   props: {
     movie: Object,
@@ -48,6 +56,13 @@ export default {
     return {
       timer: null,
       nowDate: "",
+      settings: {
+        infinite: true,
+        slidesToShow: 4,
+        speed: 500,
+        rows: 2,
+        slidesPerRow: 1,
+      },
     };
   },
   mounted() {
@@ -66,7 +81,7 @@ export default {
       this.nowDate = yy + "-" + mm + "-" + dd;
     },
     updateRecommendations() {
-      this.$store.dispatch("getMusicRecommendation")
+      this.$store.dispatch("getMusicRecommendation");
     },
   },
 };

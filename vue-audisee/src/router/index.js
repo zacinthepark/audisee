@@ -29,11 +29,6 @@ const routes = [
     name: "HomeView",
     component: HomeView,
   },
-  // {
-  //   path: "/login",
-  //   name: "LoginView",
-  //   component: LoginView,
-  // },
   {
     path: "/members",
     name: "MembersView",

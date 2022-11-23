@@ -1,9 +1,34 @@
 <!-- Background image -->
 <template>
-  <div class="wrapper">
-    <div class="content">
-      <h2>AUDISEE</h2>
-      <h2>AUDISEE</h2>
+  <div>
+    <div class="wrapper">
+      <div class="content">
+        <h2>AUDISEE</h2>
+        <h2>AUDISEE</h2>
+      </div>
+    </div>
+    <br />
+    <div>
+      <b-iconstack font-scale="2" animation="cylon" @click="goSearch">
+        <b-icon
+          stacked
+          icon="caret-right-fill"
+          shift-h="-8"
+          style="color: #03a9f4"
+        ></b-icon>
+        <b-icon
+          stacked
+          icon="caret-right-fill"
+          shift-h="0"
+          style="color: #03a9f4"
+        ></b-icon>
+        <b-icon
+          stacked
+          icon="caret-right-fill"
+          shift-h="8"
+          style="color: #03a9f4"
+        ></b-icon>
+      </b-iconstack>
     </div>
   </div>
 </template>
@@ -11,6 +36,11 @@
 <script>
 export default {
   name: "HomeView",
+  methods: {
+    goSearch() {
+      this.$router.push({ name: "SearchView" });
+    },
+  },
 };
 </script>
 
@@ -27,7 +57,7 @@ export default {
 .wrapper {
   display: flex;
   /* background: #000; */
-  min-height: 100vh;
+  min-height: 50vh;
   align-items: center;
   justify-content: center;
 }
