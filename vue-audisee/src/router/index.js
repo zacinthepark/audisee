@@ -1,16 +1,17 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import SearchView from "@/views/SearchView";
-import HomeView from "@/views/HomeView";
-import LoginView from "@/views/LoginView";
-import MembersView from "@/views/MembersView";
-import PlaylistView from "@/views/PlaylistView";
-import ProfileView from "@/views/ProfileView";
-import RecommendView from "@/views/RecommendView";
-import SignupView from "@/views/SignupView";
-import MainView from "@/views/MainView";
+import Vue from "vue"
+import VueRouter from "vue-router"
+import SearchView from "@/views/SearchView"
+import HomeView from "@/views/HomeView"
+import LoginView from "@/views/LoginView"
+import MembersView from "@/views/MembersView"
+import PlaylistView from "@/views/PlaylistView"
+import ProfileView from "@/views/ProfileView"
+import MembersProfileView from "@/views/MembersProfileView"
+import RecommendView from "@/views/RecommendView"
+import SignupView from "@/views/SignupView"
+import MainView from "@/views/MainView"
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -39,6 +40,11 @@ const routes = [
     component: MembersView,
   },
   {
+    path: "/member",
+    name: "MembersProfileView",
+    component: MembersProfileView,
+  },
+  {
     path: "/playlist",
     name: "PlaylistView",
     component: PlaylistView,
@@ -63,12 +69,12 @@ const routes = [
     name: "MainView",
     component: MainView,
   },
-];
+]
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-});
+})
 
-export default router;
+export default router
