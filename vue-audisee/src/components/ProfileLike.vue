@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="card bg-transparent border-transparent" style="width: 12rem">
+    <div
+      class="card h-100 bg-transparent border-transparent"
+      style="width: 12rem"
+    >
       <img
         class="rounded card-img-top"
         :src="`https://image.tmdb.org/t/p/original${myMovie.poster_path}`"
@@ -29,10 +32,10 @@ export default {
   },
   methods: {
     deleteMyMovie() {
-      const movie_id = this.myMovie.id
-      this.$store.dispatch('deleteMyMovie', movie_id)
+      const movie_id = this.myMovie.id;
+      this.$store.dispatch("deleteMyMovie", movie_id);
     },
-  }
+  },
 };
 </script>
 

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="card bg-transparent border-transparent" style="width: 12rem">
+    <div
+      class="card h-100 bg-transparent border-transparent"
+      style="width: 12rem"
+    >
       <img class="rounded card-img-top" :src="myTrack.cover_path" alt="#" />
 
       <div class="card-body">
@@ -25,9 +28,9 @@ export default {
   },
   methods: {
     deleteMyTrack() {
-      const track_id = this.myTrack.id
-      this.$store.dispatch('deleteMyTrack', track_id)
-    }
+      const track_id = this.myTrack.id;
+      this.$store.dispatch("deleteMyTrack", track_id);
+    },
   },
 };
 </script>
