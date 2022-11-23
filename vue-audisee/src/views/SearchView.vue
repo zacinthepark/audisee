@@ -1,5 +1,6 @@
 <template>
   <div class="container text-white">
+    <NavBarVue />
     <div>
       <h3>
         <span id="one" @click="getMovieRecommendOne">adventure</span>
@@ -39,11 +40,15 @@
 </template>
 
 <script>
-import axios from "axios"
-import _ from "lodash"
+import axios from "axios";
+import _ from "lodash";
+import NavBarVue from "@/components/NavBar.vue";
 
 export default {
   name: "SearchView",
+  components: {
+    NavBarVue,
+  },
   data() {
     return {
       mood: null,

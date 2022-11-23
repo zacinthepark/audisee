@@ -1,6 +1,6 @@
 <template>
   <div class="text-white">
-    <NavBar />
+    <NavBarVue />
     <div class="d-flex">
       <b-container class="me-5">
         <b-card-img
@@ -50,6 +50,7 @@
 import MainAVue from "@/components/MainA.vue";
 import MainCVue from "@/components/MainC.vue";
 import axios from "axios";
+import NavBarVue from "@/components/NavBar.vue";
 
 const API_URL = "http://127.0.0.1:8000";
 
@@ -58,6 +59,7 @@ export default {
   components: {
     MainAVue,
     MainCVue,
+    NavBarVue,
   },
   data() {
     return {

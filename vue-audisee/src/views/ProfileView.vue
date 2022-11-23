@@ -1,6 +1,6 @@
 <template>
   <div class="text-white">
-    <NavBar />
+    <NavBarVue />
 
     <h1 class="fw-bold">나 의 프로필</h1>
     <h3 class="p-3 mt-5 mb-2 text-start">
@@ -29,12 +29,14 @@
 <script>
 import ProfileLikeVue from "@/components/ProfileLike.vue";
 import ProfilePlaylistVue from "@/components/ProfilePlaylist.vue";
+import NavBarVue from "@/components/NavBar.vue";
 
 export default {
   name: "ProfileView",
   components: {
     ProfileLikeVue,
     ProfilePlaylistVue,
+    NavBarVue,
   },
   computed: {
     myMovies() {
