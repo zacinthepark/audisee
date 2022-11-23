@@ -14,19 +14,19 @@
           stacked
           icon="caret-right-fill"
           shift-h="-8"
-          style="color: #03a9f4"
+          style="color: #8ab1f2"
         ></b-icon>
         <b-icon
           stacked
           icon="caret-right-fill"
           shift-h="0"
-          style="color: #03a9f4"
+          style="color: #8ab1f2"
         ></b-icon>
         <b-icon
           stacked
           icon="caret-right-fill"
           shift-h="8"
-          style="color: #03a9f4"
+          style="color: #8ab1f2"
         ></b-icon>
       </b-iconstack>
     </div>
@@ -75,11 +75,11 @@ export default {
 
 .content h2:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 2px #03a9f4;
+  -webkit-text-stroke: 2px #8ab1f2;
 }
 
 .content h2:nth-child(2) {
-  color: #03a9f4;
+  color: #8ab1f2;
   animation: animate 4s ease-in-out infinite;
 }
 
