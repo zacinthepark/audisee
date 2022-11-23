@@ -1,21 +1,19 @@
 <template>
-  <SwiperSlide>
-    <div class="card bg-transparent border-transparent" style="width: 18rem">
-      <img class="rounded card-img-top" :src="music.cover_path" alt="#" />
+  <div class="card bg-transparent border-transparent" style="width: 18rem">
+    <img class="rounded card-img-top" :src="music.cover_path" alt="#" />
 
-      <div class="card-body">
-        <span>{{ music.track_name }}</span>
-        <button
-          type="button"
-          class="btn btn-outline-none fs-5 fw-bold btn-lg"
-          style="color: red"
-          @click="addToMyTrack"
-        >
-          ❤
-        </button>
-      </div>
+    <div class="card-body">
+      <span>{{ music.track_name }}</span>
+      <button
+        type="button"
+        class="btn btn-outline-none fs-5 fw-bold btn-lg"
+        style="color: red"
+        @click="addToMyTrack"
+      >
+        ❤
+      </button>
     </div>
-  </SwiperSlide>
+  </div>
 </template>
 
 <script>

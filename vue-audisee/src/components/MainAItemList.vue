@@ -17,6 +17,11 @@ export default {
   components: {
     MainAItem,
   },
+  computed: {
+    musics() {
+      return this.$store.state.musics;
+    },
+  },
 };
 </script>
 

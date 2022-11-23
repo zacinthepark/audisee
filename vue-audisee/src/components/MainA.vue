@@ -22,42 +22,17 @@
 
 <script>
 import MainAItemList from "@/components/MainAItemList";
-// import "swiper/dist/css/swiper.css";
-// import { Swiper, directive } from "vue-awesome-swiper";
 
 export default {
   name: "MainA",
   components: {
     MainAItemList,
-    // Swiper,
   },
-  // directives: {
-  //   swiper: directive,
-  // },
   props: {
     movie: Object,
   },
-  computed: {
-    musics() {
-      return this.$store.state.musics;
-    },
-  },
   data() {
     return {
-      // swiperOption: {
-      //   slidesPerView: 6,
-      //   spaceBetween: 5,
-      //   slidesPerGroup: 5,
-      //   loopFillGroupWithBlank: true,
-      //   pagination: {
-      //     el: ".swiper-pagination",
-      //     clickable: true,
-      //   },
-      //   navigation: {
-      //     nextEl: ".swiper-button-next",
-      //     prevEl: ".swiper-button-prev",
-      //   },
-      // },
       timer: null,
       nowDate: "",
     };
