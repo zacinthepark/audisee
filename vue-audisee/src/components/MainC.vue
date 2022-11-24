@@ -1,27 +1,46 @@
 <template>
   <div class="p-5">
+    <h3 class="fw-bold">{{ movie.title }} PREVIEW</h3>
+    <hr>
     <iframe
       :src="`http://www.youtube.com/embed/${this.video.id.videoId}`"
       frameborder="0"
-      width="700"
-      height="350"
+      width="1000"
+      height="600"
     ></iframe>
-    <h3>{{ movie.title }} 예고편</h3>
+    <MainCReview
+      v-for="(review, index) in reviews"
+      :key="`review-${index}`"
+      :review="review"
+    />
+    <form @submit.prevent="postReview">
+      <input type="text" v-model="content">
+    </form>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import MainCReview from "@/components/MainCReview.vue";
 
 const API_URL = "https://www.googleapis.com/youtube/v3/search";
 const API_KEY = "AIzaSyCI8t8M1ADPjcTTAuIOs3G2w-Nev9hXwRs";
 
 export default {
   name: "MainC",
+  components: {
+    MainCReview,
+  },
   data: function () {
     return {
       video: null,
+      content: null,
     };
+  },
+  computed: {
+    reviews() {
+      return this.$store.state.movieReviews
+    },
   },
   props: {
     movie: Object,
@@ -42,11 +61,19 @@ export default {
       })
         .then((res) => {
           this.video = res.data.items[0];
-          console.log(this.video.id.videoId);
+          // console.log(this.video.id.videoId);
         })
         .catch((err) => {
           console.log(err);
         });
+    },
+    postReview() {
+      const content = this.content
+      if (!content) {
+        alert('Empty Review!')
+      } else {
+        this.$store.dispatch("postReview", content)
+      }
     },
   },
   created() {

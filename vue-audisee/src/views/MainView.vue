@@ -116,6 +116,8 @@ export default {
   created() {
     this.getMovieById(this.$route.params.id);
     this.$store.dispatch("getMusicRecommendation");
+    this.$store.dispatch("getMovieReviews", this.movie.id);
+    this.$store.commit("CHANGE_CURRENT_MOVIE", this.movie.id);
   },
 };
 </script>
