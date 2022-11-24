@@ -1,21 +1,20 @@
 <template>
   <div>
     <NavBarVue />
-
-    <h1>MembersView</h1>
-    <button @click="test">test</button>
-    <MembersItemVue
-      v-for="(user, index) in users"
-      :key="`user-${index}`"
-      :user="user"
-    />
+    <div class="container">
+      <MembersItemVue
+        v-for="(user, index) in users"
+        :key="`user-${index}`"
+        :user="user"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import MembersItemVue from "@/components/MembersItem.vue"
-import NavBarVue from "@/components/NavBar.vue"
-import axios from "axios"
+import MembersItemVue from "@/components/MembersItem.vue";
+import NavBarVue from "@/components/NavBar.vue";
+import axios from "axios";
 
 export default {
   name: "MembersView",
@@ -26,12 +25,7 @@ export default {
   data() {
     return {
       users: [],
-    }
-  },
-  methods: {
-    test() {
-      console.log(this.users)
-    },
+    };
   },
   created() {
     axios({
@@ -40,13 +34,13 @@ export default {
     })
       .then((response) => {
         // console.log(response)
-        this.users = response.data
+        this.users = response.data;
       })
       .catch((error) => {
-        console.log(error)
-      })
+        console.log(error);
+      });
   },
-}
+};
 </script>
 
 <style></style>
