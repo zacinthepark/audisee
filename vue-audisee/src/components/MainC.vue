@@ -74,6 +74,7 @@ export default {
       } else {
         this.$store.dispatch("postReview", content)
       }
+      this.content = null
     },
   },
   created() {

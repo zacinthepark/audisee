@@ -156,7 +156,7 @@ export default new Vuex.Store({
           console.log(error)
         })
     },
-    postReview(context, content) {
+    postReview({dispatch, state}, content) {
       axios({
         method: 'post',
         url: `${API_URL}/review/${this.state.currentMovieId}/`,
@@ -169,6 +169,7 @@ export default new Vuex.Store({
       })
         .then((response) => {
           console.log(response.data)
+          dispatch("getMovieReviews", state.currentMovieId)
           // context.commit('POST_REVIEW', response.data)
         })
         .catch((error) => {
