@@ -2,9 +2,9 @@
   <div class="text-white">
     <NavBarVue />
 
-    <h1 class="fw-bold">{{ memberName }}의 프로필</h1>
+    <h1 class="fw-bold">{{ memberName }}'s PROFILE</h1>
     <h3 class="p-3 mt-5 mb-2 text-start">
-      총 {{ memberMoviesLength }}개의 영화를 좋아해요
+      LIKED {{ memberMoviesLength }} MOVIES
     </h3>
     <div class="row row-cols-1 row-cols-md-6 g-4 fs-6">
       <MemberProfileLike
@@ -14,7 +14,7 @@
       />
     </div>
     <h3 class="p-3 mt-5 mb-2 text-start">
-      총 {{ memberTracksLength }}개의 음악이 마음에 들어요
+      LIKED {{ memberTracksLength }} TRACKS
     </h3>
     <div class="row row-cols-1 row-cols-md-6 g-4 fs-6">
       <MemberProfilePlaylist

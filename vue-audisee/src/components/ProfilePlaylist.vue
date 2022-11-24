@@ -12,6 +12,7 @@
           type="button"
           class="btn btn-outline-none fs-5 fw-bold btn-lg"
           style="color: red"
+          @click="deleteMyTrack"
         >
           x
         </button>
