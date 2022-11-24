@@ -3,11 +3,16 @@
     <div class="col-3 bg-red text-start">
       <br />
       <br />
-      <button @click="updateRecommendations" class="btn btn-primary">
-        음악추천
-      </button>
-      <hr />
-      <h6 class="fw-light">나를 위한 새로운 발견</h6>
+      <span class="fw-light pe-3">나를 위한 새로운 발견 </span>
+      <span>
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          @click="updateRecommendations"
+        >
+          <b-icon icon="arrow-counterclockwise"></b-icon>
+        </button>
+      </span>
       <br />
       <h3 class="fw-normal">{{ movie.title }}</h3>
       <h3 class="fw-normal">추천 음악</h3>
