@@ -1,17 +1,17 @@
 <template>
   <div>
-    <!-- As a link -->
-    <b-navbar variant="faded" type="light">
-      <div class="container-fluid">
-        <b-navbar-brand href="Home" class="text-white tw-bold"
-          >AUDISEE</b-navbar-brand
-        >
-        <b-icon
-          font-scale="0.8"
-          @click="goProfile"
-          icon="person-circle"
-        ></b-icon>
-      </div>
+    <b-navbar toggleable="lg" type="dark" class="mb-3 container-fluid">
+      <b-navbar-brand href="Home" class="text-white tw-bold m-2"
+        >AUDISEE</b-navbar-brand
+      >
+      <b-collapse id="nav-collapse" class="fs-5 d-flex ml-auto" is-nav>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item href="Search">Search</b-nav-item>
+          <b-nav-item href="Members">Members</b-nav-item>
+          <b-nav-item href="Profile">Profile</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
     </b-navbar>
   </div>
 </template>
