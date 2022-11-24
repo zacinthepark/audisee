@@ -154,6 +154,7 @@ export default new Vuex.Store({
         })
         .catch((error) => {
           console.log(error)
+          context.state.movieReviews = []
         })
     },
     postReview({dispatch, state}, content) {
