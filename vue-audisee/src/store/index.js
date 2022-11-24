@@ -21,6 +21,8 @@ export default new Vuex.Store({
     memberMovies: [],
     memberTracks: [],
     token: null,
+    currentMovieId: null,
+    movieReviews: [],
   },
   getters: {
     myMovieCount(state) {
@@ -43,6 +45,17 @@ export default new Vuex.Store({
     GET_MUSICS(state, musics) {
       state.musics = musics
     },
+    CHANGE_CURRENT_MOVIE(state, movieId) {
+      state.currentMovieId = movieId
+      // console.log(state.currentMovieId)
+    },
+    GET_MOVIE_REVIEWS(state, reviews) {
+      state.movieReviews = reviews
+      // console.log(state.movieReviews)
+    },
+    // POST_REVIEW(state, review) {
+    //   state.movieReviews.append(review)
+    // },
     GET_MY_MOVIES(state, myMovies) {
       state.myMovies = myMovies
     },
@@ -125,6 +138,38 @@ export default new Vuex.Store({
         .then((response) => {
           console.log(response.data)
           context.commit("GET_MUSICS", response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    getMovieReviews(context, movieId) {
+      axios({
+        method: "get",
+        url: `${API_URL}/review/${movieId}/`,
+      })
+        .then((response) => {
+          // console.log(response.data)
+          context.commit("GET_MOVIE_REVIEWS", response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    postReview(context, content) {
+      axios({
+        method: 'post',
+        url: `${API_URL}/review/${this.state.currentMovieId}/`,
+        data: {
+          content: content,
+        },
+        headers: {
+          Authorization: `Token ${this.state.token}`,
+        },
+      })
+        .then((response) => {
+          console.log(response.data)
+          // context.commit('POST_REVIEW', response.data)
         })
         .catch((error) => {
           console.log(error)

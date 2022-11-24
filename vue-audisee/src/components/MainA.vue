@@ -13,7 +13,7 @@
       <h3 class="fw-normal">추천 음악</h3>
       <br />
       <div class="opacity-75">
-        <div class="d-inline pe-2">총 40 곡</div>
+        <div class="d-inline pe-2">총 50 곡</div>
         |
         <div class="d-inline ps-2">{{ nowDate }}</div>
       </div>

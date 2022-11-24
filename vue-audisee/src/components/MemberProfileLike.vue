@@ -12,13 +12,13 @@
 
       <div class="card-body">
         <span class="fs-5">{{ memberMovie.title }}</span>
-        <button
+        <!-- <button
           type="button"
           class="btn btn-outline-none fs-5 fw-bold btn-lg"
           style="color: red"
         >
           x
-        </button>
+        </button> -->
       </div>
     </div>
   </div>
@@ -29,12 +29,6 @@ export default {
   name: "MemberProfileLike",
   props: {
     memberMovie: Object,
-  },
-  methods: {
-    deleteMyMovie() {
-      const movie_id = this.myMovie.id
-      this.$store.dispatch("deleteMyMovie", movie_id)
-    },
   },
 }
 </script>
