@@ -4,7 +4,6 @@ import SearchView from "@/views/SearchView"
 import HomeView from "@/views/HomeView"
 import LoginView from "@/views/LoginView"
 import MembersView from "@/views/MembersView"
-import PlaylistView from "@/views/PlaylistView"
 import ProfileView from "@/views/ProfileView"
 import MembersProfileView from "@/views/MembersProfileView"
 import RecommendView from "@/views/RecommendView"
@@ -38,11 +37,6 @@ const routes = [
     path: "/member",
     name: "MembersProfileView",
     component: MembersProfileView,
-  },
-  {
-    path: "/playlist",
-    name: "PlaylistView",
-    component: PlaylistView,
   },
   {
     path: "/profile",

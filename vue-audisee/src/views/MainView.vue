@@ -57,12 +57,12 @@
 <!-- title, genre, overview, release_date, poster_path, popularity, vote_count, vote_average -->
 
 <script>
-import MainAVue from "@/components/MainA.vue";
-import MainCVue from "@/components/MainC.vue";
-import axios from "axios";
-import NavBarVue from "@/components/NavBar.vue";
+import MainAVue from "@/components/MainA.vue"
+import MainCVue from "@/components/MainC.vue"
+import axios from "axios"
+import NavBarVue from "@/components/NavBar.vue"
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "http://127.0.0.1:8000"
 
 export default {
   name: "MainView",
@@ -74,26 +74,26 @@ export default {
   data() {
     return {
       movie: null,
-    };
+    }
   },
   computed: {
     movies() {
-      return this.$store.state.movies;
+      return this.$store.state.movies
     },
   },
   methods: {
     getMovieById(id) {
       for (const movie of this.movies) {
         if (movie.id === Number(id)) {
-          this.movie = movie;
-          this.movieTitle = movie.title;
-          break;
+          this.movie = movie
+          this.movieTitle = movie.title
+          break
         }
       }
     },
     addToMyMovie() {
-      const title = this.movie.title;
-      const poster_path = this.movie.poster_path;
+      const title = this.movie.title
+      const poster_path = this.movie.poster_path
       axios({
         method: "post",
         url: `${API_URL}/playlist/movies/`,
@@ -106,20 +106,20 @@ export default {
         },
       })
         .then((response) => {
-          console.log(response);
+          console.log(response)
         })
         .catch((error) => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     },
   },
   created() {
-    this.getMovieById(this.$route.params.id);
-    this.$store.dispatch("getMusicRecommendation");
-    this.$store.commit("CHANGE_CURRENT_MOVIE", this.movie.id);
-    this.$store.dispatch("getMovieReviews", this.movie.id);
+    this.getMovieById(this.$route.params.id)
+    this.$store.dispatch("getMusicRecommendation")
+    this.$store.commit("CHANGE_CURRENT_MOVIE", this.movie.id)
+    this.$store.dispatch("getMovieReviews", this.movie.id)
   },
-};
+}
 </script>
 
 <style></style>
