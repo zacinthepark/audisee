@@ -1,8 +1,14 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" class="mb-3 container-fluid">
-      <b-navbar-brand href="Home" class="text-white tw-bold m-2"
-        >AUDISEE</b-navbar-brand
+      <b-navbar-brand href="Home" class="text-white tw-bold m-5"
+        ><img
+          src="../assets/audisee.png"
+          alt="#"
+          class="me-1"
+          style="width: 25px"
+        />
+        AUDISEE</b-navbar-brand
       >
       <b-collapse id="nav-collapse" class="fs-5 d-flex ml-auto" is-nav>
         <!-- Right aligned nav items -->
