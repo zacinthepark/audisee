@@ -1,21 +1,37 @@
 <template>
   <div class="p-5">
     <h3 class="fw-bold">{{ movie.title }} PREVIEW</h3>
-    <hr>
-    <iframe
-      :src="`http://www.youtube.com/embed/${this.video.id.videoId}`"
-      frameborder="0"
-      width="1000"
-      height="600"
-    ></iframe>
-    <MainCReview
-      v-for="(review, index) in reviews"
-      :key="`review-${index}`"
-      :review="review"
-    />
-    <form @submit.prevent="postReview">
-      <input type="text" v-model="content">
-    </form>
+    <hr />
+    <div class="d-flex">
+      <iframe
+        class="me-5"
+        :src="`http://www.youtube.com/embed/${this.video.id.videoId}`"
+        frameborder="0"
+        width="800"
+        height="450"
+      ></iframe>
+      <div
+        class="row border border-light border-2 rounded d-flex align-items-end"
+      >
+        <div class="p-4">
+          <div class="text-start">
+            <MainCReview
+              v-for="(review, index) in reviews"
+              :key="`review-${index}`"
+              :review="review"
+            />
+          </div>
+          <br />
+          <form @submit.prevent="postReview">
+            <input
+              type="text"
+              v-model="content"
+              placeholder="리뷰를 작성해주세요"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,7 +55,7 @@ export default {
   },
   computed: {
     reviews() {
-      return this.$store.state.movieReviews
+      return this.$store.state.movieReviews;
     },
   },
   props: {
@@ -68,13 +84,13 @@ export default {
         });
     },
     postReview() {
-      const content = this.content
+      const content = this.content;
       if (!content) {
-        alert('Empty Review!')
+        alert("Empty Review!");
       } else {
-        this.$store.dispatch("postReview", content)
+        this.$store.dispatch("postReview", content);
       }
-      this.content = null
+      this.content = null;
     },
   },
   created() {

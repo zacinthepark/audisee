@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ review.username }}
+    {{ review.username }}님 :
     {{ review.content }}
     <!-- <form @submit.prevent="postReview">
       <input type="text" v-model="content">
@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       content: null,
-    }
+    };
   },
   methods: {
     // postReview() {
@@ -27,11 +27,9 @@ export default {
     // },
   },
   props: {
-    review: Object
+    review: Object,
   },
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
