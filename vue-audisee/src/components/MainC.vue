@@ -1,19 +1,20 @@
 <template>
   <div class="p-5">
-    <h3 class="fw-bold">{{ movie.title }} PREVIEW</h3>
+    <h3 class="fw-bold">{{ movie.title }} Preview</h3>
     <hr />
+    <br />
     <div class="d-flex">
       <iframe
-        class="me-5"
+        class="me-5 col-8"
         :src="`http://www.youtube.com/embed/${this.video.id.videoId}`"
         frameborder="0"
-        width="800"
-        height="450"
+        width="700"
+        height="600"
       ></iframe>
       <div
         class="row border border-light border-2 rounded d-flex align-items-end"
       >
-        <div class="p-4">
+        <div>
           <div class="text-start">
             <MainCReview
               v-for="(review, index) in reviews"
@@ -24,11 +25,13 @@
           <br />
           <form @submit.prevent="postReview">
             <input
+              style="width: 20rem"
               type="text"
               v-model="content"
-              placeholder="리뷰를 작성해주세요"
+              placeholder="Leave your reviews here!"
             />
           </form>
+          <br />
         </div>
       </div>
     </div>
