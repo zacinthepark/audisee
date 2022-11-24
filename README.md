@@ -1,5 +1,3 @@
-# Seoul 01 Final Project (김민경, 박진우)
-
 ## 1. Installation
 
 ### backend
