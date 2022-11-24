@@ -4,7 +4,9 @@
       <img class="rounded card-img-top" :src="music.cover_path" alt="#" />
 
       <div class="card-body">
-        <span>{{ music.track_name }}</span>
+        <p class="d-inline-block text-truncate" style="max-width: 10rem">
+          {{ music.track_name }}
+        </p>
         <button
           type="button"
           class="btn btn-outline-none fs-5 fw-bold btn-lg"

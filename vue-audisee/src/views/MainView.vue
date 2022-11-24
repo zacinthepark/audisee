@@ -34,8 +34,16 @@
     </div>
 
     <div>
-      <b-tabs class="fs-6 m-5" pills card>
-        <b-tab class="fs-6" title="추천음악" active
+      <b-tabs class="fs-6 m-5" pills>
+        <b-tab
+          style="
+             {
+              font-family: 'LineSeed';
+            }
+          "
+          class="fs-6"
+          title="추천음악"
+          active
           ><MainAVue :movie="movie"
         /></b-tab>
         <b-tab class="fs-6" title="상세정보" lazy>
