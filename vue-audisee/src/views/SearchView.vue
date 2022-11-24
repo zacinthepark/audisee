@@ -43,7 +43,7 @@
         list="input-list"
         id="input-with-list"
         v-model="searchMovie"
-        placeholder="검색어를 입력하세요"
+        placeholder="Which movie are you looking for?"
         trim
       ></b-form-input>
       <b-form-datalist id="input-list" v-if="searchMovie">

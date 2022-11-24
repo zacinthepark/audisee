@@ -1,7 +1,6 @@
 <template>
   <div class="p-5">
     <h3 class="fw-bold">{{ movie.title }} Preview</h3>
-    <hr />
     <br />
     <div class="d-flex">
       <iframe
